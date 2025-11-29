@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     ### app news ### 
     'news.apps.NewsConfig',
+    'home.apps.HomeConfig',
     
     
     ### rest_app ### 
