@@ -37,15 +37,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'django.contrib.sites',
     
     ### app news ### 
     'news.apps.NewsConfig',
     'home.apps.HomeConfig',
     
     
+    
     ### rest_app ### 
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'dj_rest_auth',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'rest_auth.registeration'
+    
+    ### docs ### 
+    'drf_spectacular',
+    'drf_spectacular_sidecar'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +142,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.AllowAny'],
+    
+    'DEFAULT_AUTHENTICATION_CLASSES':['rest_framework.authentication.SessionAuthentication',
+                                      'rest_framework.authentication.TokenAuthentication',
+                                      ],
+    'DEFAULT_SCHEMAS_CLASS':'drf_spectacular.coreapi.AutoSchema',
+    
+}
+
+
